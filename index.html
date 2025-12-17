@@ -1,239 +1,227 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaiwit Wooyue | Fantasy Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaiwit Wooyue | Arcane Fantasy</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #1b1f3b, #050510 70%);
-      color: #eaeaf0;
-      line-height: 1.8;
-    }
+<style>
+/* ===== GLOBAL ===== */
+* { box-sizing: border-box; }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px 80px;
-    }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #2b1b4f, #05010d 70%);
+  color: #eaeaf0;
+  overflow-x: hidden;
+}
 
-    /* Title */
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 3rem;
-      text-align: center;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 20px rgba(150, 180, 255, 0.6);
-    }
+/* ===== MAGIC STARS ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 80%, #fff, transparent);
+  animation: stars 10s linear infinite;
+  opacity: 0.4;
+}
 
-    .subtitle {
-      text-align: center;
-      opacity: 0.8;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
-    }
+@keyframes stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}
 
-    /* Hero Image */
-    .hero {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 50px;
-    }
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px 100px;
+  position: relative;
+}
 
-    .hero img {
-      width: 280px;
-      border-radius: 16px;
-      box-shadow:
-        0 0 40px rgba(120, 160, 255, 0.4),
-        0 0 80px rgba(120, 160, 255, 0.2);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
+/* ===== TITLE ===== */
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  text-align: center;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #bbaaff, #ffffff, #bbaaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s infinite;
+}
 
-    .hero img:hover {
-      transform: scale(1.05);
-      box-shadow:
-        0 0 60px rgba(160, 200, 255, 0.6),
-        0 0 120px rgba(160, 200, 255, 0.4);
-    }
+@keyframes shimmer {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
 
-    /* Sections */
-    .section {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
+.subtitle {
+  text-align: center;
+  opacity: 0.9;
+  letter-spacing: 3px;
+  margin-bottom: 50px;
+}
 
-    .section:hover {
-      transform: translateY(-6px);
-    }
+/* ===== HERO IMAGE ===== */
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
 
-    h2 {
-      font-family: 'Cinzel', serif;
-      letter-spacing: 2px;
-      margin-top: 0;
-      margin-bottom: 15px;
-      color: #cfd8ff;
-      text-shadow: 0 0 10px rgba(120,160,255,0.4);
-    }
+.hero img {
+  width: 300px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 30px rgba(170,120,255,0.6),
+    0 0 80px rgba(120,200,255,0.4);
+  animation: aura 3s ease-in-out infinite;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+@keyframes aura {
+  0%,100% { box-shadow: 0 0 40px rgba(170,120,255,0.6); }
+  50% { box-shadow: 0 0 80px rgba(200,160,255,0.9); }
+}
 
-    li {
-      margin-bottom: 8px;
-    }
+/* ===== SECTIONS ===== */
+.section {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  position: relative;
+}
 
-    /* Gallery */
-    .photo-gallery img {
-      width: 200px;
-      border-radius: 14px;
-      margin-right: 12px;
-      margin-bottom: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
-    }
+.section::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, transparent, rgba(170,140,255,0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
 
-    .photo-gallery img:hover {
-      transform: scale(1.08);
-    }
+.section:hover::before {
+  opacity: 1;
+}
 
-    /* Quote */
-    blockquote {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      text-align: center;
-      padding: 25px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(120,160,255,0.15), rgba(255,255,255,0.05));
-      box-shadow: inset 0 0 30px rgba(120,160,255,0.3);
-    }
+/* ===== HEADINGS ===== */
+h2 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  color: #d6cfff;
+  text-shadow: 0 0 10px rgba(170,140,255,0.5);
+  margin-top: 0;
+}
 
-    /* Links */
-    a {
-      color: #9fb2ff;
-      text-decoration: none;
-      position: relative;
-    }
+/* ===== GALLERY ===== */
+.photo-gallery img {
+  width: 200px;
+  border-radius: 16px;
+  margin: 10px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
 
-    a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -4px;
-      background: #9fb2ff;
-      transition: width 0.3s ease;
-    }
+.photo-gallery img:hover {
+  transform: scale(1.12) rotate(-1deg);
+  box-shadow: 0 0 50px rgba(180,140,255,0.8);
+}
 
-    a:hover::after {
-      width: 100%;
-    }
+/* ===== QUOTE ===== */
+blockquote {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(160,140,255,0.25), rgba(255,255,255,0.05));
+  box-shadow: inset 0 0 40px rgba(160,140,255,0.6);
+}
 
-    /* Footer Glow */
-    .footer {
-      text-align: center;
-      margin-top: 60px;
-      opacity: 0.6;
-      font-size: 0.9rem;
-    }
-  </style>
+/* ===== LINKS ===== */
+a {
+  color: #cbbcff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 10px #cbbcff;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  margin-top: 80px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>晨序春</h1>
-    <div class="subtitle">Kaiwit Wooyue · Traveler of Music & Light</div>
+  <h1>晨序春</h1>
+  <div class="subtitle">Kaiwit Wooyue · Arcane Traveler of Light</div>
 
-    <div class="hero">
-      <img src="images/IMG_1944.png" alt="Kaiwit Wooyue">
-    </div>
-
-    <div class="section">
-      <h2>幻想畫廊 · Gallery</h2>
-      <div class="photo-gallery">
-        <img src="images/IMG_0294.jpeg">
-        <img src="images/IMG_1689.jpeg">
-        <img src="images/IMG_1877.jpeg">
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>基本資料 · Profile</h2>
-      <p>國籍：泰國</p>
-      <p>年齡：20</p>
-    </div>
-
-    <div class="section">
-      <h2>興趣 · Passions</h2>
-      <ul>
-        <li>🎤 Singing</li>
-        <li>✨ K-Pop</li>
-        <li>🎮 Gaming</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>工作經驗 · Experience</h2>
-      <p><strong>日式餐廳｜顧客服務人員</strong></p>
-      <ul>
-        <li>顧客服務與點餐溝通</li>
-        <li>基礎翻譯與需求協助</li>
-        <li>團隊合作與服務品質維持</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>特質 · Traits</h2>
-      <p><strong>優點</strong></p>
-      <ul>
-        <li>快速學習</li>
-        <li>高適應力</li>
-        <li>責任感強</li>
-      </ul>
-      <p><strong>缺點</strong></p>
-      <ul>
-        <li>不擅長拒絕</li>
-        <li>對自己要求過高</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>旅程 · Journey</h2>
-      <p>學習語言、探索世界、迎接未知的未來</p>
-    </div>
-
-    <blockquote>
-      「用音樂連結世界，用笑容迎接未來。」
-    </blockquote>
-
-    <div class="section">
-      <h2>社群 · Links</h2>
-      <ul>
-        <li><a href="https://www.instagram.com/xuchunnnn_" target="_blank">Instagram</a></li>
-        <li><a href="https://x.com/me_dommy" target="_blank">Twitter (X)</a></li>
-        <li><a href="https://www.tiktok.com/@chen.xuchun" target="_blank">TikTok</a></li>
-      </ul>
-    </div>
-
-    <div class="footer">
-      © Kaiwit Wooyue · Fantasy Persona
-    </div>
-
+  <div class="hero">
+    <img src="images/IMG_1944.png">
   </div>
+
+  <div class="section">
+    <h2>幻想畫廊 · Arcane Gallery</h2>
+    <div class="photo-gallery">
+      <img src="images/IMG_0294.jpeg">
+      <img src="images/IMG_1689.jpeg">
+      <img src="images/IMG_1877.jpeg">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>命運之書 · Profile</h2>
+    <p>國籍：泰國</p>
+    <p>年齡：20</p>
+  </div>
+
+  <div class="section">
+    <h2>天賦 · Passions</h2>
+    <ul>
+      <li>🎤 音樂詠唱</li>
+      <li>✨ 星光舞台（K-Pop）</li>
+      <li>🎮 幻界遊戲</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    「用音樂連結世界，用笑容迎接未來。」
+  </blockquote>
+
+  <div class="section">
+    <h2>社群之門 · Portals</h2>
+    <ul>
+      <li><a href="https://www.instagram.com/xuchunnnn_" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/me_dommy" target="_blank">Twitter (X)</a></li>
+      <li><a href="https://www.tiktok.com/@chen.xuchun" target="_blank">TikTok</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    © Kaiwit Wooyue · Arcane Legend
+  </div>
+
+</div>
 
 </body>
 </html>

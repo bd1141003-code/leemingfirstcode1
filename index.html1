@@ -1,0 +1,89 @@
+<div class="runes"></div>
+/* ===== FLOATING RUNES ===== */
+.runes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.runes::before {
+  content: "✦ ✧ ✶ ✷ ✸ ✹ ✺ ✵";
+  position: absolute;
+  font-size: 3rem;
+  color: rgba(190,160,255,0.15);
+  animation: runesFloat 25s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes runesFloat {
+  from { transform: translateY(100vh) rotate(0deg); }
+  to { transform: translateY(-200vh) rotate(360deg); }
+}
+<div class="magic-cursor"></div>
+
+<script>
+const cursor = document.querySelector('.magic-cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+</script>
+.magic-cursor {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(200,160,255,0.9), transparent 70%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  z-index: 9999;
+}
+.section:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 60px rgba(180,140,255,0.6),
+    inset 0 0 30px rgba(160,120,255,0.4);
+}
+@keyframes levitate {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+.hero img {
+  animation: levitate 4s ease-in-out infinite, aura 3s ease-in-out infinite;
+}
+<script>
+document.addEventListener('click', e => {
+  const spark = document.createElement('div');
+  spark.className = 'spark';
+  spark.style.left = e.clientX + 'px';
+  spark.style.top = e.clientY + 'px';
+  document.body.appendChild(spark);
+  setTimeout(() => spark.remove(), 800);
+});
+</script>
+.spark {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #fff, rgba(180,140,255,0.2));
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkFade 0.8s ease-out forwards;
+}
+
+@keyframes sparkFade {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(3); opacity: 0; }
+}
+h1 {
+  text-shadow:
+    0 0 20px rgba(180,140,255,0.8),
+    0 0 40px rgba(200,160,255,0.6);
+}
+<audio autoplay loop>
+  <source src="magic-ambient.mp3" type="audio/mpeg">
+</audio>
